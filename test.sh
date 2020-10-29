@@ -7,11 +7,11 @@ import sys
   
 args = sys.argv
 
-img = cv2.imread("{}".format(str(args[5])))
+img = cv2.imread('{}'.format(str(args[5])))
 left, right = int(args[1]), int(args[3])
 top, bottom = int(args[2]), int(args[4])
 im2 = img[top:bottom, left:right]
-cv2.imwrite("{}.jpg".format(str(args[6])), im2)" >> cut.py
+cv2.imwrite('{}.jpg'.format(str(args[6])), im2)" >> cut.py
 else
   echo "cut.py is alredy exsits."
 fi
