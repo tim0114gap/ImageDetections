@@ -29,7 +29,7 @@ for txt in $(ls $str); do
   tail -n 4 result4.txt >> result5.txt
   cat result5.txt | tr '\n' ' ' >> result6.txt
   
-  python cut.py `cat result6.txt` ${str}/${txt} ${str}Result/${count}
+  python3 cut.py `cat result6.txt` ${str}/${txt} ${str}Result/${count}
   count=`expr $count + 1`
   rm result.txt result2.txt result3.txt result4.txt result5.txt result6.txt
 done
