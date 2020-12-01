@@ -7,19 +7,26 @@ import sys
   
 args = sys.argv
 
-img = cv2.imread('{}'.format(str(args[5])))
+img = cv2.imread("{}".format(str(args[5])))
 left, right = int(args[1]), int(args[3])
 top, bottom = int(args[2]), int(args[4])
 im2 = img[top:bottom, left:right]
-cv2.imwrite('{}.jpg'.format(str(args[6])), im2)" >> cut.py
+cv2.imwrite("{}.jpg".format(str(args[6])), im2)" >> cut.py
 else
-  echo "cut.py is alredy exsits."
+  echo "starting..."
+  echo ""
 fi
 
+echo "Make the type you want to classify into a directory with a name."
+echo ""
+echo "person/bicycle/car/motorcycle/airplane/bus/train/truck/boat/traffic light/fire hydrant/stop sign/parking meter/bench/bird/cat/dog/horse/sheep/cow/elephant/bear/zebra/giraffe/backpack/umbrella/handbag/tie/suitcase/frisbee/skis/snowboard/sports ball/kite/baseball bat/baseball glove/skateboard/surfboard/tennis racket/bottle/wine glass/cup/fork/knife/spoon/bowl/banana/apple/sandwich/orange/broccoli/carrot/hot dog/pizza/donut/cake/chair/couch/potted plant/bed/dining table/toilet/tv/laptop/mouse/remote/keyboard/cell phone/microwave/oven/toaster/sink/refrigerator/book/clock/vase/scissors/teddy bear/hair drier/toothbrush"
+echo ""
 
-read -p "folder name? >" str
+read -p "file name? >" str
 mkdir "${str}Result"
 count=1
+
+source myvenv/bin/activate
 
 for txt in $(ls $str); do
   ./darknet detect cfg/yolov3.cfg yolov3.weights ${str}/${txt} >> result.txt
